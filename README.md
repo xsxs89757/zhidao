@@ -12,7 +12,7 @@ git clone git@github.com:xsxs89757/zhidao.git
 ##### 安装依赖:
 
 ```bash
-pip install -r requirements.txt
+pip3 install -r requirements.txt #使用python3安装
 ```
 
 ```python
