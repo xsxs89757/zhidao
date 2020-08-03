@@ -25,7 +25,7 @@ ROBOTSTXT_OBEY = False
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-# DOWNLOAD_DELAY = 1
+DOWNLOAD_DELAY = 3
 # The download delay setting will honor only one of:
 #CONCURRENT_REQUESTS_PER_DOMAIN = 16
 #CONCURRENT_REQUESTS_PER_IP = 16
@@ -69,7 +69,9 @@ DEFAULT_REQUEST_HEADERS = {
 #}
 DOWNLOADER_MIDDLEWARES = {
     # 将自己编写的类导入
-    'baidu.middlewares.RandomUserAgentMidddlware': 543,
+    'baidu.middlewares.RandomUserAgentAndProxyMidddlware': 543,
+    # 设置系统自带的代理优先级为none
+    'scrapy.contrib.downloadermiddleware.httpproxy.HttpProxyMiddleware' : None,
     # 导入系统自带的useragent类，并将优先级设置为none
     'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
 }
@@ -77,7 +79,7 @@ DOWNLOADER_MIDDLEWARES = {
 # 设置自定义的random的属性
 RANDOM_UA_TYPE = "random"
 
-# Enable or disable extensions
+# Enable or disable extensionspip install pipreqs
 # See https://docs.scrapy.org/en/latest/topics/extensions.html
 #EXTENSIONS = {
 #    'scrapy.extensions.telnet.TelnetConsole': None,

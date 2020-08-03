@@ -49,12 +49,11 @@ class BaiduPipeline(object):
         question_name = self.settings['QUESTION_NAME']
         if not isinstance(question_name, bytes):
             question_name = question_name.encode('utf8')
-        base_url = "http://zhidao.baidu.com/search?word=%s&pn=%d"
+        base_url = "http://zhidao.baidu.com/search?word=%s&pn=%d&c=1"
         if question_name == 'all':
             pass
         else:
             spider.start_urls = [base_url % (quote(question_name), pn)]
-        # print(spider.start_urls)
 
     def close_spider(self, spider):
         self.settings['SIMPLE_LOG'].log(spider.cur_page - 1)

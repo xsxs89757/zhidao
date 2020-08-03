@@ -1,0 +1,6 @@
+/__pycache__
+*/__pycache__
+.vscode
+spider.log
+.DS_Store
+*/.DS_Store

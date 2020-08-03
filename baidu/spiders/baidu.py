@@ -9,7 +9,6 @@ class BaiduSpider(scrapy.Spider):
 
     def parse(self, response):  # forum parser
         print("Crawling page %d..." % self.cur_page)
-        #print(response.xpath('//dt[contains(@alog-alias, "result-title-")]//a/@href').extract())
         for sel in response.xpath('//dt[contains(@alog-alias, "result-title-")]//a/@href'):
             url = sel.extract()
             bind_id = 0
@@ -31,6 +30,7 @@ class BaiduSpider(scrapy.Spider):
             if next_page:
                 if self.cur_page <= self.end_page:
                     next_page = response.urljoin(next_page.extract_first())
+                    #next_page = next_page.replace('https://','http://')
                     print(next_page)
                     yield scrapy.Request(next_page, callback=self.parse)
 
