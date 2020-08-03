@@ -27,7 +27,7 @@ QUESTION_*  # 问题相关mysql配置资料  # 暂时未实现相关api
 #### 启动项目:
 
 ```bash    
-scrapy run [question_name] [bind_id] -p [start_page end_page] 
+scrapy run [question_name] [bind_id] -p [start_page end_page] #-p 不添加的情况下 将会只抓去第一页的第一条搜索结果内的评论
 例如:scrapy run 成人高考怎么报名？ 1 -p 1 30 
 ```   
 
