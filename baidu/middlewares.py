@@ -27,7 +27,7 @@ def delete_proxy(proxy):
 
 
 class RandomUserAgentAndProxyMidddlware(object):
-    proxy = ''
+    proxy = False
    #proxy = get_proxy().get("proxy") #由于获取不到有效代理  暂时注释  使用实效设置进行采集
     ALL_EXCEPTIONS = (defer.TimeoutError, TimeoutError, DNSLookupError,
                       ConnectionRefusedError, ConnectionDone, ConnectError,
